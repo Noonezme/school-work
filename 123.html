@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La page littéraire de Zaland</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 210mm;
+            height: 297mm;
+            margin: auto;
+            padding: 20mm;
+            background-color: white;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .rubrique {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            color: #555;
+            border-bottom: 2px solid #e63946;
+            padding-bottom: 5px;
+            margin-bottom: 8mm;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #1d3557;
+            margin-bottom: 8mm;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #457b9d;
+            margin-bottom: 12mm;
+            text-align: center;
+        }
+
+        .content {
+            font-size: 0.9em;
+            margin-bottom: 8mm;
+            text-align: justify;
+        }
+
+        .opinion {
+            font-size: 1em;
+            font-weight: bold;
+            color: #1d3557;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .footer {
+            font-size: 0.8em;
+            color: #888;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            padding-top: 5mm;
+        }
+
+        img {
+            max-width: 45%;
+            max-height: 80mm;
+            float: left;
+            margin: 0 10px 10px 0;
+            border: 1px solid #ccc;
+            object-fit: contain;
+        }
+
+        .download-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #e63946;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: #d62828;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Download Button -->
+
+    <div class="container" id="article-container">
+        <!-- Rubrique Title -->
+        <div class="rubrique">La page littéraire de Zaland</div>
+
+        <!-- Catchy Title -->
+        <div class="title">La Faucheuse : Une aventure qui fait peur et réfléchir</div>
+
+        <!-- Subtitle -->
+        <div class="subtitle">Un livre où les gens doivent mourir pour sauver le monde.</div>
+
+        <!-- Image Placeholder 1 -->
+        <img src="img1.png" alt="Illustration de La Faucheuse">
+
+        <!-- Content: Summary -->
+        <div class="content">
+            <p>Dans le livre <em>La Faucheuse</em>, on est dans un monde où personne ne peut mourir normalement. Les humains vivent pour toujours grâce aux machines, mais ce n’est pas bien, car il y a trop de monde. Alors, il y a des "Faucheurs" qui doivent tuer des gens pour faire de la place.</p>
+
+            <p>Deux jeunes, Citra et Rowan, doivent apprendre à devenir Faucheurs. Mais ce n’est pas facile, parce qu’ils doivent tuer des gens qu’ils aiment parfois. Ils découvrent aussi que ce travail est très difficile et que des Faucheurs ne respectent pas les règles.</p>
+        </div>
+
+        <!-- Opinion -->
+        <div class="opinion">Mon Avis</div>
+        <div class="content">
+            <p>Moi, j’ai beaucoup aimé ce livre. L’histoire est très intéressante et un peu triste. Les personnages sont bien écrits, et on a envie de savoir ce qui va se passer pour eux. J’ai aussi trouvé que l’idée des Faucheurs était originale et faisait réfléchir. Mais parfois, c’est un peu compliqué à comprendre.</p>
+            <p>Je recommande ce livre pour ceux qui aiment les histoires avec de l’action et des émotions.</p>
+        </div>
+
+        <!-- Footer: Book Information -->
+        <div class="footer">
+            <p><strong>Titre :</strong> La Faucheuse</p>
+            <p><strong>Auteur :</strong> Neal Shusterman</p>
+            <p><strong>Note :</strong> ⭐⭐⭐⭐ (4/5 étoiles)</p>
+        </div>
+    </div>
+
+    <script>
+        function downloadArticle() {
+            const container = document.getElementById('article-container');
+    
+            html2canvas(container, {
+                scale: 3, // High resolution for A4
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'la_faucheuse_article.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(error => {
+                console.error('Error generating the image:', error);
+                alert('Failed to generate the image. Please check your resources or browser settings.');
+            });
+        }
+    </script>
+    
+    
+
+    <!-- Include html2canvas library -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</body>
+</html>
